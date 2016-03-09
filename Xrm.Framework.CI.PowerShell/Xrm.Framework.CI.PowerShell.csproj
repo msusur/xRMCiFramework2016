@@ -1,0 +1,444 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A4D91C99-EF3D-4ED4-A647-7902054F8854}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Xrm.Framework.CI.PowerShell</RootNamespace>
+    <AssemblyName>Xrm.Framework.CI.PowerShell</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\Lib\Keys\Xrm.Framework.CI.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AntiXSSLibrary, Version=4.2.0.0, Culture=neutral, PublicKeyToken=d127efab8a9c114f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CrmSdk.Extensions.7.1.0.1\lib\net45\AntiXSSLibrary.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Crm.Sdk.Proxy, Version=8.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CrmSdk.CoreAssemblies.8.0.2.1\lib\net45\Microsoft.Crm.Sdk.Proxy.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.6.1.7600.16394\lib\net35\Microsoft.IdentityModel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.Build.Client, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.TeamFoundation.Build.Client.11.0.60610.1\lib\Microsoft.TeamFoundation.Build.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xrm.Client, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CrmSdk.Extensions.7.1.0.1\lib\net45\Microsoft.Xrm.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xrm.Client.CodeGeneration, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CrmSdk.Extensions.7.1.0.1\lib\net45\Microsoft.Xrm.Client.CodeGeneration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xrm.Portal, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CrmSdk.Extensions.7.1.0.1\lib\net45\Microsoft.Xrm.Portal.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xrm.Portal.Files, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CrmSdk.Extensions.7.1.0.1\lib\net45\Microsoft.Xrm.Portal.Files.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xrm.Sdk, Version=8.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CrmSdk.CoreAssemblies.8.0.2.1\lib\net45\Microsoft.Xrm.Sdk.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xrm.Sdk.Deployment, Version=8.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CrmSdk.Deployment.8.0.2.1\lib\net45\Microsoft.Xrm.Sdk.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Management.Automation" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Command\EntityCommand\GetXrmEntitiesCommand.cs" />
+    <Compile Include="Command\EntityCommand\GetXrmEntityCommand.cs" />
+    <Compile Include="Command\GetXrmSolutionImportLog.cs" />
+    <Compile Include="Command\NewXrmBulkDeleteJobCommand.cs" />
+    <Compile Include="Command\SetXrmSolutionVersionInFolderCommand.cs" />
+    <Compile Include="Command\GetXrmSolutionInfoFromFolderCommand.cs" />
+    <Compile Include="Command\GetXrmSolutionInfoFromZipCommand.cs" />
+    <Compile Include="Command\SelectXrmWhoAmICommand.cs" />
+    <Compile Include="Command\PublishXrmCustomizationsCommand.cs" />
+    <Compile Include="Command\EntityCommand\NewXrmEntityCommand.cs" />
+    <Compile Include="Command\EntityCommand\AddXrmEntityCommand.cs" />
+    <Compile Include="Command\EntityCommand\RemoveXrmEntityCommand.cs" />
+    <Compile Include="Command\SetXrmSolutionVersionCommand.cs" />
+    <Compile Include="Command\EntityCommand\SetXrmEntityCommand.cs" />
+    <Compile Include="Command\GetXrmSolutionCommand.cs" />
+    <Compile Include="Command\ExportXrmSolutionCommand.cs" />
+    <Compile Include="Command\ImportXrmSolutionCommand.cs" />
+    <Compile Include="Common\AccountLeads.cs" />
+    <Compile Include="Common\AccountState.cs" />
+    <Compile Include="Common\ActivityMimeAttachment.cs" />
+    <Compile Include="Common\ActivityParty.cs" />
+    <Compile Include="Common\ActivityPointer.cs" />
+    <Compile Include="Common\ActivityPointerState.cs" />
+    <Compile Include="Common\Annotation.cs" />
+    <Compile Include="Common\AnnualFiscalCalendar.cs" />
+    <Compile Include="Common\Appointment.cs" />
+    <Compile Include="Common\AppointmentState.cs" />
+    <Compile Include="Common\AsyncOperation.cs" />
+    <Compile Include="Common\AsyncOperationState.cs" />
+    <Compile Include="Common\AttributeMap.cs" />
+    <Compile Include="Common\Audit.cs" />
+    <Compile Include="Common\BulkDeleteFailure.cs" />
+    <Compile Include="Common\BulkDeleteOperation.cs" />
+    <Compile Include="Common\BulkDeleteOperationState.cs" />
+    <Compile Include="Common\BulkOperation.cs" />
+    <Compile Include="Common\BulkOperationLog.cs" />
+    <Compile Include="Common\BulkOperationState.cs" />
+    <Compile Include="Common\BusinessUnit.cs" />
+    <Compile Include="Common\BusinessUnitNewsArticle.cs" />
+    <Compile Include="Common\Calendar.cs" />
+    <Compile Include="Common\CalendarRule.cs" />
+    <Compile Include="Common\Campaign.cs" />
+    <Compile Include="Common\CampaignActivity.cs" />
+    <Compile Include="Common\CampaignActivityItem.cs" />
+    <Compile Include="Common\CampaignActivityState.cs" />
+    <Compile Include="Common\CampaignItem.cs" />
+    <Compile Include="Common\CampaignResponse.cs" />
+    <Compile Include="Common\CampaignResponseState.cs" />
+    <Compile Include="Common\CampaignState.cs" />
+    <Compile Include="Common\CIContext.cs" />
+    <Compile Include="Common\ColumnMapping.cs" />
+    <Compile Include="Common\ColumnMappingState.cs" />
+    <Compile Include="Common\Competitor.cs" />
+    <Compile Include="Common\CompetitorProduct.cs" />
+    <Compile Include="Common\CompetitorSalesLiterature.cs" />
+    <Compile Include="Common\Connection.cs" />
+    <Compile Include="Common\ConnectionRole.cs" />
+    <Compile Include="Common\ConnectionRoleAssociation.cs" />
+    <Compile Include="Common\ConnectionRoleObjectTypeCode.cs" />
+    <Compile Include="Common\ConnectionRoleState.cs" />
+    <Compile Include="Common\ConnectionState.cs" />
+    <Compile Include="Common\ConstraintBasedGroup.cs" />
+    <Compile Include="Common\Contact.cs" />
+    <Compile Include="Common\ContactInvoices.cs" />
+    <Compile Include="Common\ContactLeads.cs" />
+    <Compile Include="Common\ContactOrders.cs" />
+    <Compile Include="Common\ContactQuotes.cs" />
+    <Compile Include="Common\ContactState.cs" />
+    <Compile Include="Common\Contract.cs" />
+    <Compile Include="Common\ContractDetail.cs" />
+    <Compile Include="Common\ContractDetailState.cs" />
+    <Compile Include="Common\ContractState.cs" />
+    <Compile Include="Common\ContractTemplate.cs" />
+    <Compile Include="Common\CustomerAddress.cs" />
+    <Compile Include="Common\CustomerOpportunityRole.cs" />
+    <Compile Include="Common\CustomerRelationship.cs" />
+    <Compile Include="Common\Dependency.cs" />
+    <Compile Include="Common\Discount.cs" />
+    <Compile Include="Common\DiscountType.cs" />
+    <Compile Include="Common\DiscountTypeState.cs" />
+    <Compile Include="Common\DisplayString.cs" />
+    <Compile Include="Common\DuplicateRecord.cs" />
+    <Compile Include="Common\DuplicateRule.cs" />
+    <Compile Include="Common\DuplicateRuleCondition.cs" />
+    <Compile Include="Common\DuplicateRuleState.cs" />
+    <Compile Include="Common\Email.cs" />
+    <Compile Include="Common\EmailServerProfile.cs" />
+    <Compile Include="Common\EmailServerProfileState.cs" />
+    <Compile Include="Common\EmailState.cs" />
+    <Compile Include="Common\Account.cs" />
+    <Compile Include="Common\EntityMap.cs" />
+    <Compile Include="Common\Equipment.cs" />
+    <Compile Include="Common\ExchangeSyncIdMapping.cs" />
+    <Compile Include="Common\Fax.cs" />
+    <Compile Include="Common\FaxState.cs" />
+    <Compile Include="Common\FieldPermission.cs" />
+    <Compile Include="Common\FieldSecurityProfile.cs" />
+    <Compile Include="Common\FixedMonthlyFiscalCalendar.cs" />
+    <Compile Include="Common\Goal.cs" />
+    <Compile Include="Common\GoalRollupQuery.cs" />
+    <Compile Include="Common\GoalRollupQueryState.cs" />
+    <Compile Include="Common\GoalState.cs" />
+    <Compile Include="Common\Import.cs" />
+    <Compile Include="Common\ImportEntityMapping.cs" />
+    <Compile Include="Common\ImportEntityMappingState.cs" />
+    <Compile Include="Common\ImportFile.cs" />
+    <Compile Include="Common\ImportFileState.cs" />
+    <Compile Include="Common\ImportJob.cs" />
+    <Compile Include="Common\ImportLog.cs" />
+    <Compile Include="Common\ImportLogState.cs" />
+    <Compile Include="Common\ImportMap.cs" />
+    <Compile Include="Common\ImportMapState.cs" />
+    <Compile Include="Common\ImportState.cs" />
+    <Compile Include="Common\Incident.cs" />
+    <Compile Include="Common\IncidentResolution.cs" />
+    <Compile Include="Common\IncidentResolutionState.cs" />
+    <Compile Include="Common\IncidentState.cs" />
+    <Compile Include="Common\InvalidDependency.cs" />
+    <Compile Include="Common\Invoice.cs" />
+    <Compile Include="Common\InvoiceDetail.cs" />
+    <Compile Include="Common\InvoiceState.cs" />
+    <Compile Include="Common\IOrganizationServiceExtensions.cs" />
+    <Compile Include="Common\IsvConfig.cs" />
+    <Compile Include="Common\KbArticle.cs" />
+    <Compile Include="Common\KbArticleComment.cs" />
+    <Compile Include="Common\KbArticleState.cs" />
+    <Compile Include="Common\KbArticleTemplate.cs" />
+    <Compile Include="Common\Lead.cs" />
+    <Compile Include="Common\LeadAddress.cs" />
+    <Compile Include="Common\LeadCompetitors.cs" />
+    <Compile Include="Common\LeadProduct.cs" />
+    <Compile Include="Common\LeadState.cs" />
+    <Compile Include="Common\Letter.cs" />
+    <Compile Include="Common\LetterState.cs" />
+    <Compile Include="Common\License.cs" />
+    <Compile Include="Common\List.cs" />
+    <Compile Include="Common\ListMember.cs" />
+    <Compile Include="Common\ListState.cs" />
+    <Compile Include="Common\LookUpMapping.cs" />
+    <Compile Include="Common\LookUpMappingState.cs" />
+    <Compile Include="Common\Mailbox.cs" />
+    <Compile Include="Common\MailboxState.cs" />
+    <Compile Include="Common\MailMergeTemplate.cs" />
+    <Compile Include="Common\MailMergeTemplateState.cs" />
+    <Compile Include="Common\Metric.cs" />
+    <Compile Include="Common\MetricState.cs" />
+    <Compile Include="Common\MonthlyFiscalCalendar.cs" />
+    <Compile Include="Common\msdyn_PostAlbum.cs" />
+    <Compile Include="Common\msdyn_PostAlbumState.cs" />
+    <Compile Include="Common\msdyn_PostConfig.cs" />
+    <Compile Include="Common\msdyn_PostConfigState.cs" />
+    <Compile Include="Common\msdyn_PostRuleConfig.cs" />
+    <Compile Include="Common\msdyn_PostRuleConfigState.cs" />
+    <Compile Include="Common\msdyn_wallsavedquery.cs" />
+    <Compile Include="Common\msdyn_wallsavedqueryState.cs" />
+    <Compile Include="Common\msdyn_wallsavedqueryusersettings.cs" />
+    <Compile Include="Common\msdyn_wallsavedqueryusersettingsState.cs" />
+    <Compile Include="Common\Opportunity.cs" />
+    <Compile Include="Common\OpportunityClose.cs" />
+    <Compile Include="Common\OpportunityCloseState.cs" />
+    <Compile Include="Common\OpportunityCompetitors.cs" />
+    <Compile Include="Common\OpportunityProduct.cs" />
+    <Compile Include="Common\OpportunityState.cs" />
+    <Compile Include="Common\OrderClose.cs" />
+    <Compile Include="Common\OrderCloseState.cs" />
+    <Compile Include="Common\Organization.cs" />
+    <Compile Include="Common\OrganizationUI.cs" />
+    <Compile Include="Common\OwnerMapping.cs" />
+    <Compile Include="Common\OwnerMappingState.cs" />
+    <Compile Include="Common\PhoneCall.cs" />
+    <Compile Include="Common\PhoneCallState.cs" />
+    <Compile Include="Common\PickListMapping.cs" />
+    <Compile Include="Common\PickListMappingState.cs" />
+    <Compile Include="Common\PluginAssembly.cs" />
+    <Compile Include="Common\PluginType.cs" />
+    <Compile Include="Common\PluginTypeStatistic.cs" />
+    <Compile Include="Common\Post.cs" />
+    <Compile Include="Common\PostComment.cs" />
+    <Compile Include="Common\PostFollow.cs" />
+    <Compile Include="Common\PostLike.cs" />
+    <Compile Include="Common\PriceLevel.cs" />
+    <Compile Include="Common\PriceLevelState.cs" />
+    <Compile Include="Common\PrincipalEntityMap.cs" />
+    <Compile Include="Common\PrincipalObjectAttributeAccess.cs" />
+    <Compile Include="Common\Privilege.cs" />
+    <Compile Include="Common\ProcessSession.cs" />
+    <Compile Include="Common\ProcessSessionState.cs" />
+    <Compile Include="Common\ProcessStage.cs" />
+    <Compile Include="Common\ProcessTrigger.cs" />
+    <Compile Include="Common\Product.cs" />
+    <Compile Include="Common\ProductAssociation.cs" />
+    <Compile Include="Common\ProductPriceLevel.cs" />
+    <Compile Include="Common\ProductSalesLiterature.cs" />
+    <Compile Include="Common\ProductState.cs" />
+    <Compile Include="Common\ProductSubstitute.cs" />
+    <Compile Include="Common\Publisher.cs" />
+    <Compile Include="Common\PublisherAddress.cs" />
+    <Compile Include="Common\QuarterlyFiscalCalendar.cs" />
+    <Compile Include="Common\Queue.cs" />
+    <Compile Include="Common\QueueItem.cs" />
+    <Compile Include="Common\QueueItemState.cs" />
+    <Compile Include="Common\QueueState.cs" />
+    <Compile Include="Common\Quote.cs" />
+    <Compile Include="Common\QuoteClose.cs" />
+    <Compile Include="Common\QuoteCloseState.cs" />
+    <Compile Include="Common\QuoteDetail.cs" />
+    <Compile Include="Common\QuoteState.cs" />
+    <Compile Include="Common\RecurrenceRule.cs" />
+    <Compile Include="Common\RecurringAppointmentMaster.cs" />
+    <Compile Include="Common\RecurringAppointmentMasterState.cs" />
+    <Compile Include="Common\RelationshipRole.cs" />
+    <Compile Include="Common\RelationshipRoleMap.cs" />
+    <Compile Include="Common\RelationshipRoleState.cs" />
+    <Compile Include="Common\Report.cs" />
+    <Compile Include="Common\ReportCategory.cs" />
+    <Compile Include="Common\ReportEntity.cs" />
+    <Compile Include="Common\ReportLink.cs" />
+    <Compile Include="Common\ReportVisibility.cs" />
+    <Compile Include="Common\Resource.cs" />
+    <Compile Include="Common\ResourceGroup.cs" />
+    <Compile Include="Common\ResourceSpec.cs" />
+    <Compile Include="Common\RibbonCustomization.cs" />
+    <Compile Include="Common\Role.cs" />
+    <Compile Include="Common\RolePrivileges.cs" />
+    <Compile Include="Common\RoleTemplatePrivileges.cs" />
+    <Compile Include="Common\RollupField.cs" />
+    <Compile Include="Common\SalesLiterature.cs" />
+    <Compile Include="Common\SalesLiteratureItem.cs" />
+    <Compile Include="Common\SalesOrder.cs" />
+    <Compile Include="Common\SalesOrderDetail.cs" />
+    <Compile Include="Common\SalesOrderState.cs" />
+    <Compile Include="Common\SavedQuery.cs" />
+    <Compile Include="Common\SavedQueryState.cs" />
+    <Compile Include="Common\SavedQueryVisualization.cs" />
+    <Compile Include="Common\SdkMessage.cs" />
+    <Compile Include="Common\SdkMessageFilter.cs" />
+    <Compile Include="Common\SdkMessagePair.cs" />
+    <Compile Include="Common\SdkMessageProcessingStep.cs" />
+    <Compile Include="Common\SdkMessageProcessingStepImage.cs" />
+    <Compile Include="Common\SdkMessageProcessingStepSecureConfig.cs" />
+    <Compile Include="Common\SdkMessageProcessingStepState.cs" />
+    <Compile Include="Common\SdkMessageRequest.cs" />
+    <Compile Include="Common\SdkMessageRequestField.cs" />
+    <Compile Include="Common\SdkMessageResponse.cs" />
+    <Compile Include="Common\SdkMessageResponseField.cs" />
+    <Compile Include="Common\SemiAnnualFiscalCalendar.cs" />
+    <Compile Include="Common\Service.cs" />
+    <Compile Include="Common\ServiceAppointment.cs" />
+    <Compile Include="Common\ServiceAppointmentState.cs" />
+    <Compile Include="Common\ServiceContractContacts.cs" />
+    <Compile Include="Common\ServiceEndpoint.cs" />
+    <Compile Include="Common\SharePointDocumentLocation.cs" />
+    <Compile Include="Common\SharePointDocumentLocationState.cs" />
+    <Compile Include="Common\SharePointSite.cs" />
+    <Compile Include="Common\SharePointSiteState.cs" />
+    <Compile Include="Common\Site.cs" />
+    <Compile Include="Common\SiteMap.cs" />
+    <Compile Include="Common\Solution.cs" />
+    <Compile Include="Common\SolutionComponent.cs" />
+    <Compile Include="Common\Subject.cs" />
+    <Compile Include="Common\SubscriptionManuallyTrackedObject.cs" />
+    <Compile Include="Common\SystemForm.cs" />
+    <Compile Include="Common\SystemUser.cs" />
+    <Compile Include="Common\SystemUserLicenses.cs" />
+    <Compile Include="Common\SystemUserProfiles.cs" />
+    <Compile Include="Common\SystemUserRoles.cs" />
+    <Compile Include="Common\Task.cs" />
+    <Compile Include="Common\TaskState.cs" />
+    <Compile Include="Common\Team.cs" />
+    <Compile Include="Common\TeamMembership.cs" />
+    <Compile Include="Common\TeamProfiles.cs" />
+    <Compile Include="Common\TeamRoles.cs" />
+    <Compile Include="Common\TeamTemplate.cs" />
+    <Compile Include="Common\Template.cs" />
+    <Compile Include="Common\Territory.cs" />
+    <Compile Include="Common\TimeZoneDefinition.cs" />
+    <Compile Include="Common\TimeZoneLocalizedName.cs" />
+    <Compile Include="Common\TimeZoneRule.cs" />
+    <Compile Include="Common\TraceLog.cs" />
+    <Compile Include="Common\TransactionCurrency.cs" />
+    <Compile Include="Common\TransactionCurrencyState.cs" />
+    <Compile Include="Common\TransformationMapping.cs" />
+    <Compile Include="Common\TransformationMappingState.cs" />
+    <Compile Include="Common\TransformationParameterMapping.cs" />
+    <Compile Include="Common\UoM.cs" />
+    <Compile Include="Common\UoMSchedule.cs" />
+    <Compile Include="Common\UoMScheduleState.cs" />
+    <Compile Include="Common\UserEntityInstanceData.cs" />
+    <Compile Include="Common\UserEntityUISettings.cs" />
+    <Compile Include="Common\UserForm.cs" />
+    <Compile Include="Common\UserQuery.cs" />
+    <Compile Include="Common\UserQueryState.cs" />
+    <Compile Include="Common\UserQueryVisualization.cs" />
+    <Compile Include="Common\UserSettings.cs" />
+    <Compile Include="Common\WebResource.cs" />
+    <Compile Include="Common\Workflow.cs" />
+    <Compile Include="Common\WorkflowDependency.cs" />
+    <Compile Include="Common\WorkflowLog.cs" />
+    <Compile Include="Common\WorkflowState.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Command\XrmCommandBase.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Scripts\ExtractCustomizations.ps1">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Scripts\BulkDeleteJob.ps1">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Scripts\DeployPackage.ps1">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Scripts\DynamicsCRMTemplateDeployScript.ps1">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Scripts\DynamicsCRMTemplateImportScript.ps1">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Scripts\DynamicsCRMTemplateBuildScript.ps1">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Scripts\EntityCommands.ps1">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Scripts\ImportSolution.ps1">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Scripts\RMPSCmdArgs.ps1">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
